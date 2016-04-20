@@ -20,11 +20,6 @@ queue()
 .defer(d3.csv, "reducedFile.csv")
 .await(ready);
 
-//filters for text
-var nypd = "NYPD"
-var weekend = ["0.Sun","6.Sat"]
-var noise = "Loud Music/Party"
-var tlc = "TLC"
 
 function ready(error, data){
 	//format dates
@@ -34,6 +29,7 @@ function ready(error, data){
 
     var ndx = crossfilter(data);
     var all = ndx.groupAll();        
+    console.log(count)
     dc.dataCount("#count")
         .dimension(ndx)
         .group(all)
@@ -44,7 +40,7 @@ function ready(error, data){
 
     	d3.select("#loader").remove();
         var width = 900
-        var height = 200
+        var height = 400
 //        drawChart("ANC",topics["ANC"],ndx,width,100)
 //        drawChart("COW",topics["COW"],ndx,width,300)
         
@@ -83,7 +79,6 @@ function drawChart(category,categoryName,ndx,width,height){
        // .elasticX(true)
 //        .xAxis().ticks(4)
         dc.renderAll();
-        d3.selectAll("text").attr("font-size","28px")
     
 }
 //#### Version

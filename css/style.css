@@ -35,7 +35,9 @@ a{
     border-bottom:1px dotted black;
     z-index:999;
 }
-
+.dc-chart g.row text{
+    font-size:14px;
+}
 .title{
 	font-size:36px;
 	line-height:150%;
